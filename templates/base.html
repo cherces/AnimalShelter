@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AnimalShelter</title>
+</head>
+
+<body>
+    <header>
+        <a href="{{ url_for('main.index') }}">
+            Главный
+        </a>
+        <a href="{{ url_for('main.profile') }}">
+            Профиль
+        </a>
+        <a href="{{ url_for('auth.login') }}">
+            Вход
+        </a>
+        <a href="{{ url_for('auth.logout') }}">
+            Выход
+        </a>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+
+</html>
