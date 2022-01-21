@@ -1,18 +1,29 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 
 
-animal_db = SQLAlchemy()
+db = SQLAlchemy()
 
 
 def create_app():
     app = Flask(__name__)
 
     app.config['SECRET_KEY'] = 'rh63nvG7fj9v0?;DAdj1#'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///animals_db.sqlite'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    animal_db.init_app(app)
+    db.init_app(app)
+
+    login_manager = LoginManager()
+    login_manager.login_view = 'auth.login'
+    login_manager.init_app(app)
+
+    from db import Users
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return Users.query.get(int(user_id))
 
     from auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
