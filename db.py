@@ -9,7 +9,7 @@ class Animal(db.Model):
 
 
 class AnimalList(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     type_code = db.Column(db.Integer, db.ForeignKey('animal.code'))
     date = db.Column(db.Date)
     color = db.Column(db.String(25))
@@ -17,6 +17,6 @@ class AnimalList(db.Model):
 
 
 class Users(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))

@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:sqlite:C:\Users\cherces\Desktop\testTaskSovkombank\AnimalShelter\animals_db.sqlite</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="db" uuid="d699c362-ec4d-4c56-81f3-d08d1ab72b43">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\cherces\Desktop\testTaskSovkombank\AnimalShelter\db.sqlite</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

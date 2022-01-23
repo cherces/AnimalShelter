@@ -1,5 +1,41 @@
 {% extends "base.html" %}
 
+{% block stylesheets %}
+  <link href="./static/css/profile.css" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
 <p>Здравствуйте, {{ name }}</p>
+
+<div class="table">
+	<table>
+		<caption>Список зарегистрированных животных</caption>
+		<thead>
+			<tr>
+				<th>Номер</th>
+				<th>Тип</th>
+				<th>Порода</th>
+				<th>Дата регистрации</th>
+				<th>Цвет</th>
+				<th>Рост</th>
+			</tr>
+		</thead>
+	</table>
+	<div class="table-body">
+		<table>
+			<tbody>
+				{% for item in animal_list %}
+					<tr>
+						<td>{{ item[0] }}</td>
+						<td>{{ item[1] }}</td>
+						<td>{{ item[2] }}</td>
+						<td>{{ item[3] }}</td>
+						<td>{{ item[4] }}</td>
+						<td>{{ item[5] }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
 {% endblock %}
