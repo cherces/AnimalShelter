@@ -1,4 +1,4 @@
-import sqlite3, db
+import sqlite3
 
 
 def select_animals_list():
@@ -11,8 +11,51 @@ def select_animals_list():
 
     data = cursor.fetchall()
 
+    conn.close()
+    return data
+
+
+def select_animals_list_from_id(id):
+    conn = sqlite3.connect("db.sqlite")
+    cursor = conn.cursor()
+
+    select = """select animal_list.type_code, animal_list.color, animal_list.height, animal_list.breed 
+                    from animal_list
+                    where animal_list.id = ?"""
+    cursor.execute(select, (id,))
+
+    data = cursor.fetchall()
+
+    conn.close()
+    return data
+
+
+def select_type_animals():
+    conn = sqlite3.connect("db.sqlite")
+    cursor = conn.cursor()
+
+    cursor.execute("""select * from animal""")
+
+    data = cursor.fetchall()
+
+    conn.close()
+    return data
+
+
+def select_type_from_code(code):
+    conn = sqlite3.connect("db.sqlite")
+    cursor = conn.cursor()
+
+    select = """select animal.name, animal.animal_family 
+                    from animal
+                    where animal.code = ?"""
+    cursor.execute(select, (code,))
+
+    data = cursor.fetchall()
+
+    conn.close()
     return data
 
 
 if __name__ == "__main__":
-    select_animals_list()
+    select_type_animals()

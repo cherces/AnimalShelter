@@ -1,3 +1,6 @@
+.tables-container .table {
+	height: 100%;
+}
 .table-body {
 	height: 250px;
 	overflow-x: auto;

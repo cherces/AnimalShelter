@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AnimalShelter</title>
+</head>
+
+<body>
+    <h1>Редактирование типа животного</h1>
+    <h2>Введите новые данные для изменения</h2>
+    <form method="post" action="/editType">
+        <p>
+        <label for="code_field">Название</label>
+        <input value="{{ code }}" type="text" name="code" id="code_field" placeholder="Код" readonly>
+        </p>
+        <p>
+        <label for="name_field">Название</label>
+        <input value="{{ item[0] }}" type="text" name="name" id="name_field" placeholder="Название">
+        </p>
+        <p>
+        <label for="family_field">Семейство</label>
+        <input value="{{ item[1] }}" type="text" name="family" id="family_field" placeholder="Семейство">
+        </p>
+
+        <button type="submit">Отправить новые данные</button>
+    </form>
+</body>
+
+</html>

@@ -19,7 +19,7 @@ def create_app():
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
-    from db import Users
+    from db_models import Users
 
     @login_manager.user_loader
     def load_user(user_id):
@@ -30,6 +30,9 @@ def create_app():
 
     from main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+
+    from operations_db import operations_db as operations_db_blueprint
+    app.register_blueprint(operations_db_blueprint)
 
     return app
 

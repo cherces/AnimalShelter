@@ -7,35 +7,78 @@
 {% block content %}
 <p>Здравствуйте, {{ name }}</p>
 
-<div class="table">
-	<table>
-		<caption>Список зарегистрированных животных</caption>
-		<thead>
-			<tr>
-				<th>Номер</th>
-				<th>Тип</th>
-				<th>Порода</th>
-				<th>Дата регистрации</th>
-				<th>Цвет</th>
-				<th>Рост</th>
-			</tr>
-		</thead>
-	</table>
-	<div class="table-body">
+<div class="tables-container">
+	<form action="/profile/add" method="post" id="add"></form>
+	<form action="/profile/edit/animal" method="post" id="edit_animal"></form>
+	<form action="/profile/edit/type" method="post" id="edit_type"></form>
+	<form action="/profile/delete/animal" method="post" id="delete_animal"></form>
+	<form action="/profile/delete/type" method="post" id="delete_type"></form>
+	<div class="table">
 		<table>
-			<tbody>
-				{% for item in animal_list %}
-					<tr>
-						<td>{{ item[0] }}</td>
-						<td>{{ item[1] }}</td>
-						<td>{{ item[2] }}</td>
-						<td>{{ item[3] }}</td>
-						<td>{{ item[4] }}</td>
-						<td>{{ item[5] }}</td>
-					</tr>
-				{% endfor %}
-			</tbody>
+			<caption>Список зарегистрированных животных <button type="submit" value="add_to_animals_list" name="add" form="add" style="background: #F74366"><img src="../static/img/add.png" height="20" width="20"></button></caption>
+			<thead>
+				<tr>
+					<th>Номер</th>
+					<th>Тип</th>
+					<th>Порода</th>
+					<th>Дата регистрации</th>
+					<th>Цвет</th>
+					<th>Рост</th>
+					<th>Операция</th>
+				</tr>
+			</thead>
 		</table>
+		<div class="table-body">
+			<table>
+				<tbody>
+					{% for item in animals_list %}
+						<tr>
+							<td>{{ item[0] }}</td>
+							<td>{{ item[1] }}</td>
+							<td>{{ item[2] }}</td>
+							<td>{{ item[3] }}</td>
+							<td>{{ item[4] }}</td>
+							<td>{{ item[5] }}</td>
+							<td>
+								<button type="submit" value="{{ item[0] }}" name="edit_animals_list" form="edit_animal"><img src="../static/img/edit.png" height="15" width="15"></button>
+								<button type="submit" value="{{ item[0] }}" name="delete_from_animals_list" form="delete_animal"><img src="../static/img/delete.png" height="15" width="15"></button>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="table">
+		<table>
+			<caption>Тип животных <button type="submit" value="add_to_types_list" name="add" form="add" style="background: #F74366"><img src="../static/img/add.png" height="20" width="20"></button></caption>
+			<thead>
+				<tr>
+					<th>Код</th>
+					<th>Название</th>
+					<th>Семейство</th>
+					<th>Операция</th>
+				</tr>
+			</thead>
+		</table>
+		<div class="table-body">
+			<table>
+				<tbody>
+					{% for item in type_animals_list %}
+						<tr>
+							<td>{{ item[0] }}</td>
+							<td>{{ item[1] }}</td>
+							<td>{{ item[2] }}</td>
+							<td>
+								<button type="submit" value="{{ item[0] }}" name="edit_type_animal" form="edit_type"><img src="../static/img/edit.png" height="15" width="15"></button>
+								<button type="submit" value="{{ item[0] }}" name="delete_type_animal" form="delete_type"><img src="../static/img/delete.png" height="15" width="15"></button>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
+
 {% endblock %}

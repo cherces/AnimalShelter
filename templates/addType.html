@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AnimalShelter</title>
+</head>
+
+<body>
+    <h1>Добавление типа животного</h1>
+    <h2>Введите данные нового типа</h2>
+    <form method="post" action="/addType">
+        <p>
+        <label for="type_field">Код типа</label>
+        <input type="text" name="type" id="type_field" placeholder="Код типа">
+        </p>
+        <p>
+        <label for="name_field">Название</label>
+        <input type="text" name="name" id="name_field" placeholder="Название">
+        </p>
+        <p>
+        <label for="family_field">Семейство</label>
+        <input type="text" name="family" id="family_field" placeholder="Семейство">
+        </p>
+
+        <button type="submit">Добавить</button>
+    </form>
+</body>
+
+</html>

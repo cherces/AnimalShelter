@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AnimalShelter</title>
+</head>
+
+<body>
+    <h1>Редактирование записи животного</h1>
+    <h2>Введите новые данные для изменения</h2>
+    <form method="post" action="/editAnimal">
+        <p>
+        <label for="id_field">Номер записи</label>
+        <input type="text" value="{{ id }}" name="id" id="id_field" placeholder="Номер записи" readonly>
+        </p>
+        <p>
+        <label for="type_field">Код типа</label>
+        <input type="text" value="{{ item[0] }}" name="type" id="type_field" placeholder="Код типа">
+        </p>
+        <p>
+        <label for="color_field">Цвет</label>
+        <input value="{{ item[1] }}" type="text" name="color" id="color_field" placeholder="Цвет">
+        </p>
+        <p>
+        <label for="height_field">Рост</label>
+        <input value="{{ item[2] }}" type="text" name="height" id="height_field" placeholder="Рост">
+        </p>
+        <p>
+        <label for="breed_field">Порода</label>
+        <input value="{{ item[3] }}" type="text" name="breed" id="breed_field" placeholder="Порода">
+        </p>
+
+        <button type="submit">Отправить новые данные</button>
+    </form>
+</body>
+
+</html>
