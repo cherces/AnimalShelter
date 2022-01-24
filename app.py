@@ -34,6 +34,9 @@ def create_app():
     from operations_db import operations_db as operations_db_blueprint
     app.register_blueprint(operations_db_blueprint)
 
+    from news import news_b as news_blueprint
+    app.register_blueprint(news_blueprint)
+
     return app
 
 

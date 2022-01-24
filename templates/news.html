@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Объявление о пропаже животного</h1>
+
+<form action="/news" method="post">
+        <p>
+            <label for="text_field">Введите текст</label>
+            <br>
+            <textarea type="text" name="text" id="text_field" placeholder="Текст объявления"></textarea>
+        </p>
+
+    <button type="submit" name="operation" value="print">Отправить на печать</button>
+</form>
+{% endblock %}
