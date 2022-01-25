@@ -28,7 +28,7 @@ def print_new():
 
     html = render_template("pdf_template.html", text=text)
 
-    config = pdfkit.configuration(wkhtmltopdf="venv\\include\\wkhtmltopdf\\bin\\wkhtmltopdf.exe")
+    config = pdfkit.configuration(wkhtmltopdf="lib\\wkhtmltopdf\\bin\\wkhtmltopdf.exe")
 
     pdf = pdfkit.from_string(html, False, configuration=config)
 
